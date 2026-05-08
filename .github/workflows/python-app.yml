@@ -1,0 +1,12 @@
+name: Linha de Montagem CI
+on: [push] # O robô trabalha toda vez que alguém faz um commit
+
+jobs:
+  verificacao:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Teste de Qualidade
+        run: |
+          # O teste verifica se a soma de 2 + 2 realmente dá 4
+          python3 -c "from calculadora import somar; assert somar(2, 2) == 4"
